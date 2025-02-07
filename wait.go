@@ -130,7 +130,7 @@ func (d *App) WaitServiceStable(ctx context.Context, sv *Service) error {
 	cancel() // stop the showServiceStatus
 
 	<-time.After(delayForServiceChanged)
-	// show the service status once more (correct all logs)
+	// show the service status once more (collect all logs)
 	if err := d.showServiceStatus(ctx, st); err != nil {
 		d.Log("[WARNING] %s", err.Error())
 	}
